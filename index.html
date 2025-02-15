@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jx movies - imdb</title>
+    <style>
+      body {
+        color: rgba(255, 255, 255, 0.87);
+        margin: 0;
+        height: 100svh;
+      }
+
+      :root {
+        color-scheme: light dark;
+      }
+
+      a {
+        display: flex;
+        gap: 1ch;
+        align-items: center;
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.87);
+      }
+
+      a:hover {
+        color: #7dd3fc;
+      }
+
+      header {
+        margin: 1rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      @media only screen and (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        a {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <input id="txtImdbId" placeholder="imdb id" onInput="onSetSrc()" />
+      <div style="display: flex; align-items: center; gap: 1ch">
+        e.g:
+        <a
+          id="source"
+          href="https://www.imdb.com/title/tt0311289"
+          target="_blank"
+          style="display: flex; align-items: center; gap: 0"
+        >
+          <span>https://www.imdb.com/title/</span>
+          <span id="lblImdbId" style="color: #7dd3fc; font-weight: bold">
+            tt0311289
+          </span>
+        </a>
+      </div>
+      <a href="https://brave.com/" target="_blank">
+        use
+        <img
+          width="18px"
+          src="https://upload.wikimedia.org/wikipedia/commons/5/51/Brave_icon_lionface.png"
+        />
+        for no Ads
+      </a>
+    </header>
+
+    <iframe
+      src=""
+      style="width: 100%; height: 100%"
+      frameborder="0"
+      referrerpolicy="origin"
+      allowfullscreen
+    ></iframe>
+
+    <script>
+      const ui = {
+        txtImdbId: document.querySelector("#txtImdbId"),
+        iframe: document.querySelector("iframe"),
+        imdbSource: document.querySelector("#source"),
+        lblImdbId: document.querySelector("#lblImdbId"),
+      }
+
+      function onSetSrc() {
+        const src = ui.txtImdbId.value
+        ui.iframe.src = "https://vidsrc.me/embed/movie?imdb=" + src
+        localStorage.setItem("imdb", src)
+        ui.lblImdbId.textContent = src
+        ui.imdbSource.href = "https://www.imdb.com/title/" + src
+      }
+
+      window.onload = () => {
+        ui.txtImdbId.value = localStorage.getItem("imdb") || "tt0311289"
+        onSetSrc()
+      }
+    </script>
+  </body>
+</html>
