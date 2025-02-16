@@ -53,7 +53,7 @@ header {
   overflow-y: hidden;
   gap: 1rem;
   padding-inline: 1rem;
-  height: 4rem;
+  height: 3rem;
   white-space: nowrap;
   transition: margin-top ease 250ms;
 }
