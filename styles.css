@@ -1,0 +1,101 @@
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  height: 100svh;
+
+}
+
+a {
+  display: flex;
+  gap: 1ch;
+  /* align-items: center; */
+  margin-left: auto;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+a:hover {
+  color: #0077ff;
+}
+
+button {
+  cursor: pointer;
+}
+
+.blue {
+  color: #0077ff;
+  font-weight: bold;
+}
+
+header {
+  margin: 1rem;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.type_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history_container {
+  scrollbar-width: thin;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1rem;
+  padding-inline: 1rem;
+  height: 4rem;
+  white-space: nowrap;
+  transition: margin-top ease 250ms;
+}
+
+.history_container.hidden {
+  margin-top: -4rem;
+}
+
+.history_toggler {
+  z-index: 133;
+  /* position: absolute; */
+  left: 50%;
+  top: 4.3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  a {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: rgba(255, 255, 255, 0.68);
+    background: #121212;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  a:hover {
+    color: #7dd3fc;
+  }
+
+  .blue {
+    color: #7dd3fc;
+  }
+}
