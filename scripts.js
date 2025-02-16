@@ -24,7 +24,7 @@ let listHistory = []
  * @param {string} src
  */
 function saveToHistory(type, src) {
-  if (!src.startsWith("tt") || src.length !== 9) {
+  if (!src.startsWith("tt") || src.length < 9) {
     return
   }
 
